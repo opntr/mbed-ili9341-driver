@@ -7,7 +7,6 @@
 #include "colors.h"
 #include "fonts.h"
 #include "image.h"
-#include "main.h"
 #include "registers.h"
 
 #define LCD_BL_ON() GPIO_SetBits(GPIOB, GPIO_Pin_1)
