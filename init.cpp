@@ -2,6 +2,19 @@
 
 #include "init.h"
 
+ili9341::ili9341()
+{
+    this->fsmc_cmd_baddr = NULL;
+    this->fsmc_data_baddr = NULL;
+}
+
+ili9341::~ili9341()
+{
+    // teardown
+
+    this->fsmc_cmd_baddr = NULL;
+    this->fsmc_data_baddr = NULL;
+}
 
 /*
  * Mostly based on information from
