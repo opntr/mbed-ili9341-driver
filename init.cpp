@@ -1,4 +1,7 @@
+#include <mbed.h>
+
 #include "init.h"
+
 
 /*
  * Mostly based on information from
@@ -8,8 +11,33 @@
 void
 ili9341::setup_ctrl_lines()
 {
-#if 0
-#endif /* 0 */
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+    memset(&GPIO_InitStructure, 0, sizeof(GPIO_InitStructure));
+
+    /* configure port_d */
+
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+
+    GPIO_InitStructure.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_7 |
+        GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
+    GPIO_InitStructure.Alternate = GPIO_AF12_FSMC;
+    GPIO_InitStructure.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
+    GPIO_InitStructure.Pull = GPIO_PULLUP;
+    HAL_GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    /* configure port_e */
+
+    __HAL_RCC_GPIOE_CLK_ENABLE();
+
+    GPIO_InitStructure.Pin = GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_11 |
+        GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
+    GPIO_InitStructure.Alternate = GPIO_AF12_FSMC;
+    GPIO_InitStructure.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
+    GPIO_InitStructure.Pull = GPIO_PULLUP;
+    HAL_GPIO_Init(GPIOE, &GPIO_InitStructure);
 }
 
 void
