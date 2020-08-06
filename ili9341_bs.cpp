@@ -1,6 +1,6 @@
 #include <mbed.h>
 
-#include "init.h"
+#include "ili9341.hpp"
 
 ili9341::ili9341()
 {
@@ -135,5 +135,6 @@ ili9341::set_backlight(unsigned short percent)
         this->backlight = 100 - percent;
 
 #if 0
+
 #endif /* 0 */
 }
