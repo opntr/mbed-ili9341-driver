@@ -2,6 +2,8 @@
 
 #include <cstdint>
 
+#include "contrib/ili9341/ili9341.h"
+
 class ili9341 {
 private:
     unsigned short backlight;
