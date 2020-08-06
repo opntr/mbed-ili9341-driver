@@ -13,8 +13,12 @@ extern "C" {
 #include "image.h"
 #include "registers.h"
 
+#ifndef LCD_BL_ON
 #define LCD_BL_ON() GPIO_SetBits(GPIOB, GPIO_Pin_1)
+#endif /* LCD_LB_ON */
+#ifndef LCD_BL_OFF
 #define LCD_BL_OFF() GPIO_ResetBits(GPIOB, GPIO_Pin_1)
+#endif /* LCD_BL_OFF */
 
 #define LCD_BASE0 ((uint32_t)0x60000000)
 #define LCD_BASE1 ((uint32_t)0x60080000)

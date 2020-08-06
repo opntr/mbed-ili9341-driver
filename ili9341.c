@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "glue.h"
+#include "ili9341_glue.h"
 
 #include "ili9341.h"
 
